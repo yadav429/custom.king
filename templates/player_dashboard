@@ -1,0 +1,52 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CustomKingFF Player Dashboard</title>
+<style>
+body{background:#080d18;color:white;font-family:Arial;padding:15px}
+.card{background:#1c293b;padding:18px;margin:15px 0;border-radius:14px}
+h1,h2{color:orange}
+a{color:#ffb347;text-decoration:none}
+.item{padding:10px;border-bottom:1px solid #455}
+</style>
+</head>
+<body>
+<h1>🔥 CUSTOM KING FF</h1>
+<h2>Player Dashboard</h2>
+
+<div class="card">
+<h2>👤 My Profile</h2>
+<p>Name: {{player['name']}}</p>
+<p>UID: {{player['uid']}}</p>
+<p>Phone: {{player['phone']}}</p>
+</div>
+
+<div class="card">
+<h2>🏆 My Winnings</h2>
+<h1>₹{{total_winning}}</h1>
+{% for w in winnings %}
+<div class="item">
+{{w['match_title'] or 'Tournament'}} - ₹{{w['prize']}}
+</div>
+{% else %}
+<p>No Winning Records Yet</p>
+{% endfor %}
+</div>
+
+<div class="card">
+<h2>🎮 Available Rooms</h2>
+{% for room in rooms %}
+<div class="item">
+{{room['title']}}<br>
+{{room['match_time'] or 'Time not announced'}}
+</div>
+{% else %}
+<p>No Rooms Available</p>
+{% endfor %}
+</div>
+
+<a href="/player/logout">🚪 Logout</a>
+</body>
+</html>
