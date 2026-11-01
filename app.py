@@ -9,6 +9,7 @@ if not app.secret_key:
     raise RuntimeError("SECRET_KEY is not set!")
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
+DB = "game.db"
 
 if not ADMIN_PASSWORD:
     raise RuntimeError("ADMIN_PASSWORD is not set!")
