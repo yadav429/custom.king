@@ -3,7 +3,10 @@ import sqlite3
 import os
 
 app = Flask(__name__)
-app.secret_key = os.environ.get("SECRET_KEY", "customkingff-secret-change-this")
+app.secret_key = os.environ.get("SECRET_KEY")
+
+if not app.secret_key:
+    raise RuntimeError("SECRET_KEY is not set!")
 
 ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
 
