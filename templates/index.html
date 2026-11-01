@@ -1,0 +1,248 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CUSTOM KING FF</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: Arial, sans-serif;
+            color: white;
+            background: linear-gradient(135deg, #080d20, #172653, #090d19);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        header {
+            text-align: center;
+            color: #ffcf45;
+            font-size: 27px;
+            font-weight: bold;
+            padding: 20px;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 30px 10px;
+        }
+
+        .hero h1 {
+            font-size: 45px;
+            margin-bottom: 10px;
+        }
+
+        .hero h1 span {
+            color: #ffcf45;
+        }
+
+        .hero p {
+            color: #c5cce0;
+            line-height: 1.6;
+        }
+
+        .stats {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 10px;
+        }
+
+        .stat {
+            background: #172342;
+            padding: 18px 5px;
+            border-radius: 12px;
+            text-align: center;
+            border: 1px solid #ffcf45;
+        }
+
+        .stat h2 {
+            color: #ffcf45;
+            margin: 0;
+        }
+
+        .stat p {
+            font-size: 12px;
+            margin-bottom: 0;
+        }
+
+        .form-box {
+            background: #172342;
+            padding: 25px;
+            margin-top: 25px;
+            border-radius: 15px;
+            border: 1px solid #ffcf45;
+        }
+
+        .form-box h2 {
+            text-align: center;
+            color: #ffcf45;
+        }
+
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+        }
+
+        input {
+            width: 100%;
+            padding: 14px;
+            border-radius: 8px;
+            border: 1px solid #526080;
+            background: #0b142b;
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            width: 100%;
+            padding: 15px;
+            margin-top: 22px;
+            border: none;
+            border-radius: 8px;
+            background: linear-gradient(90deg, #ffb52e, #ffe16a);
+            color: black;
+            font-size: 17px;
+            font-weight: bold;
+            cursor: pointer;
+        }
+
+        button:hover {
+            opacity: 0.85;
+        }
+
+        .message {
+            background: #205239;
+            padding: 12px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .rules {
+            color: #bdc7df;
+            font-size: 13px;
+            line-height: 1.8;
+            margin-top: 20px;
+        }
+
+        footer {
+            text-align: center;
+            color: #aab4cf;
+            margin-top: 30px;
+            font-size: 13px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <header>
+        👑 CUSTOM KING FF
+    </header>
+
+    <section class="hero">
+        <h1>PLAY AND <span>WIN</span></h1>
+        <p>
+            Join Free Fire Custom Tournament.
+            Play matches and win exciting prizes!
+        </p>
+    </section>
+
+    <section class="stats">
+
+        <div class="stat">
+            <h2>₹20</h2>
+            <p>Entry Fee</p>
+        </div>
+
+        <div class="stat">
+            <h2>₹200</h2>
+            <p>Winning Prize</p>
+        </div>
+
+        <div class="stat">
+            <h2>{{ count|default(0) }}/50</h2>
+            <p>Players</p>
+        </div>
+
+    </section>
+
+    <section class="form-box">
+
+        <h2>JOIN TOURNAMENT</h2>
+
+        {% with messages = get_flashed_messages() %}
+            {% for message in messages %}
+                <div class="message">
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endwith %}
+
+        <form action="{{ url_for('join') }}" method="POST">
+
+            <label>Your Name</label>
+            <input
+                type="text"
+                name="name"
+                placeholder="Enter your name"
+                required
+            >
+
+            <label>Free Fire UID</label>
+            <input
+                type="text"
+                name="uid"
+                placeholder="Enter Free Fire UID"
+                required
+            >
+
+            <label>Mobile Number</label>
+            <input
+                type="tel"
+                name="mobile"
+                maxlength="10"
+                pattern="[0-9]{10}"
+                placeholder="Enter mobile number"
+                required
+            >
+
+            <button type="submit">
+                REGISTER NOW
+            </button>
+
+        </form>
+
+        <div class="rules">
+            <p>✔ Entry Fee: ₹20</p>
+            <p>✔ Winner Prize: ₹200</p>
+            <p>✔ Maximum Players: 50</p>
+            <p>✔ Match timing: 5:00 PM</p>
+            <p>✔ Play fair and enjoy!</p>
+        </div>
+
+    </section>
+
+    <footer>
+        © 2026 CUSTOM KING FF
+        <br>
+        All Rights Reserved.
+    </footer>
+
+</div>
+
+</body>
+</html>
