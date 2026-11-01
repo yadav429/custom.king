@@ -13,9 +13,10 @@ DB = "game.db"
 
 if not ADMIN_PASSWORD:
     raise RuntimeError("ADMIN_PASSWORD is not set!")
+    DB = "game.db"
 
 
-def database():
+def database(DB):DB = "game.db"
     con = sqlite3.connect(DB)
     con.row_factory = sqlite3.Row
 
