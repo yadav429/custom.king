@@ -5,8 +5,10 @@ import os
 app = Flask(__name__)
 app.secret_key = os.environ.get("SECRET_KEY", "customkingff-secret-change-this")
 
-ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD", "kingff123")
-DB = "game.db"
+ADMIN_PASSWORD = os.environ.get("ADMIN_PASSWORD")
+
+if not ADMIN_PASSWORD:
+    raise RuntimeError("ADMIN_PASSWORD is not set!")
 
 
 def database():
