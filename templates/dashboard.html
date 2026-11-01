@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Dashboard</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{background:#080808;color:white;font-family:Arial;padding:15px}
+h1,h2{color:gold}
+.box{background:#202020;padding:20px;margin:15px 0;border:1px solid gold;border-radius:12px}
+input{padding:12px;width:90%;margin:8px 0}
+button{background:gold;padding:12px;border:0;border-radius:8px}
+table{width:100%;border-collapse:collapse}
+td,th{padding:10px;border-bottom:1px solid #555;text-align:left}
+.table{overflow-x:auto}
+a{color:gold}
+</style>
+</head>
+<body>
+
+<h1>👑 CUSTOMKINGFF ADMIN</h1>
+
+<div class="box">
+<h2>Total Players: {{ total }}</h2>
+</div>
+
+<div class="box">
+<h2>Registered Players</h2>
+<div class="table">
+<table>
+<tr>
+<th>Name</th>
+<th>UID</th>
+<th>Phone</th>
+</tr>
+
+{% for p in players %}
+<tr>
+<td>{{ p.name }}</td>
+<td>{{ p.uid }}</td>
+<td>{{ p.phone }}</td>
+</tr>
+{% else %}
+<tr><td colspan="3">No Players Yet</td></tr>
+{% endfor %}
+
+</table>
+</div>
+</div>
+
+<div class="box">
+<h2>Add Upcoming Match</h2>
+
+<form method="POST" action="/add-room">
+<input name="title" placeholder="Match Name" required>
+<input name="match_time" placeholder="Match Time">
+<button type="submit">ADD MATCH</button>
+</form>
+</div>
+
+<div class="box">
+<h2>Upcoming Matches</h2>
+{% for room in rooms %}
+<p>{{ room.title }} - {{ room.match_time }}</p>
+{% else %}
+<p>No Matches Added</p>
+{% endfor %}
+</div>
+
+<a href="/logout">LOGOUT</a>
+
+</body>
+</html>

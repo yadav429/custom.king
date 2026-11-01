@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>CUSTOM KING FF</title>
+<style>
+body{background:#080808;color:white;text-align:center;font-family:Arial}
+.card{background:#222;margin:20px;padding:20px;border-radius:15px}
+h2{color:orange}
+input{padding:12px;margin:8px;width:85%}
+button{background:orangered;color:white;padding:15px;border:0}
+</style>
+</head>
+<body>
+<h1>🔥 CUSTOM KING FF 🔥</h1>
+<div class="card">
+<h2>CUSTOM TOURNAMENT</h2>
+<h3>ENTRY FEE ₹20</h3>
+<h1>🏆 WIN ₹200</h1>
+<h3>PLAYERS {{count}} / 50</h3>
+</div>
+<div class="card">
+<h2>JOIN TOURNAMENT</h2>
+<form action="/join" method="POST">
+<input name="name" placeholder="Your Name" required>
+<input name="uid" placeholder="Free Fire UID" required>
+<input name="phone" placeholder="Mobile Number" required>
+<button>JOIN NOW</button>
+</form>
+</div>
+</body></html>

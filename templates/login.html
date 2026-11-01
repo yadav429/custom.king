@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Admin Login</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{background:#080808;color:white;text-align:center;font-family:Arial;padding:30px}
+.box{background:#202020;padding:25px;border:1px solid gold;border-radius:15px;max-width:350px;margin:auto}
+h1{color:gold}
+input{padding:13px;width:90%;margin:15px 0}
+button{background:gold;padding:13px 25px;border:0;border-radius:8px}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>👑 ADMIN LOGIN</h1>
+<form method="POST">
+<input type="password" name="password" placeholder="Admin Password" required>
+<br>
+<button type="submit">LOGIN</button>
+</form>
+{% for msg in get_flashed_messages() %}
+<p>{{ msg }}</p>
+{% endfor %}
+</div>
+</body>
+</html>

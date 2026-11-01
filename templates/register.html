@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Player Registration</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+body{background:#080808;color:white;font-family:Arial;text-align:center;padding:20px}
+.box{background:#1b1b1b;padding:25px;border:1px solid gold;border-radius:15px;max-width:400px;margin:30px auto}
+h1{color:gold}
+input{width:90%;padding:14px;margin:10px;border-radius:8px;border:0}
+button{background:gold;padding:14px 25px;border:0;border-radius:8px;font-weight:bold}
+a{color:gold}
+</style>
+</head>
+<body>
+<div class="box">
+<h1>👑 CUSTOMKINGFF</h1>
+<h2>Player Registration</h2>
+
+<form method="POST" action="/register">
+<input type="text" name="name" placeholder="Player Name" required>
+<input type="text" name="uid" placeholder="Free Fire UID" required>
+<input type="tel" name="phone" placeholder="Phone Number" required>
+<br><br>
+<button type="submit">SUBMIT REGISTRATION</button>
+</form>
+
+{% for msg in get_flashed_messages() %}
+<p>{{ msg }}</p>
+{% endfor %}
+
+<br>
+<a href="/">Back Home</a>
+</div>
+</body>
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>CustomKingFF</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<style>
+body {
+    background:#080808;
+    color:white;
+    font-family:Arial;
+    text-align:center;
+    margin:0;
+}
+header {
+    background:#171717;
+    padding:25px;
+    border-bottom:2px solid gold;
+}
+.logo {
+    font-size:28px;
+    color:gold;
+    font-weight:bold;
+}
+.hero {
+    padding:45px 15px;
+}
+h1 {
+    color:gold;
+}
+.btn {
+    display:inline-block;
+    background:gold;
+    color:black;
+    padding:15px 30px;
+    text-decoration:none;
+    border-radius:10px;
+    font-weight:bold;
+    margin:10px;
+}
+.box {
+    background:#1b1b1b;
+    margin:20px;
+    padding:25px;
+    border:1px solid gold;
+    border-radius:15px;
+}
+.number {
+    color:gold;
+    font-size:40px;
+    font-weight:bold;
+}
+.match {
+    background:#292929;
+    padding:15px;
+    margin:10px;
+    border-radius:10px;
+}
+footer {
+    padding:20px;
+    color:gray;
+}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="logo">👑 CUSTOMKINGFF</div>
+<p>FREE FIRE TOURNAMENT</p>
+</header>
+
+<div class="hero">
+<h1>PLAY & WIN</h1>
+<p>Join Custom Rooms and Win Exciting Prizes!</p>
+
+<a href="/register" class="btn">🎮 JOIN TOURNAMENT</a>
+</div>
+
+<div class="box">
+<h2>👥 TOTAL PLAYERS</h2>
+<div class="number">{{ total }}</div>
+<p>Registered Players</p>
+</div>
+
+<div class="box">
+<h2>🏆 UPCOMING MATCHES</h2>
+
+{% for room in rooms %}
+<div class="match">
+<h3>{{ room.title }}</h3>
+<p>🕒 {{ room.match_time or "Coming Soon" }}</p>
+</div>
+{% else %}
+<p>No Upcoming Matches</p>
+{% endfor %}
+
+</div>
+
+<footer>
+© 2026 CUSTOMKINGFF
+</footer>
+
+</body>
+</html>
