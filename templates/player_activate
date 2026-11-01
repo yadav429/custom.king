@@ -1,0 +1,18 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Activate Player Account</title>
+</head>
+<body style="background:#111;color:white;text-align:center;font-family:Arial;padding:20px">
+<h2>Activate Your Account</h2>
+<form method="POST">
+<input name="uid" placeholder="Registered Free Fire UID" required><br><br>
+<input name="phone" placeholder="Registered Phone Number" required><br><br>
+<input name="password" type="password" minlength="8" placeholder="Create New Password" required><br><br>
+<button type="submit">Activate Account</button>
+</form>
+<p><a href="/player/login" style="color:orange">Back to Login</a></p>
+</body>
+</html>
